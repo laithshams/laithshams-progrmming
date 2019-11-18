@@ -6,26 +6,26 @@ public class Triangle {
 		System.out.println("what's the height of your triangle?");
 		int n = y.nextInt();
 		int n2;
-		n2 = ((3 * (n*n) - n) / 2);
-		int ns=n-1;
-		int nl=n;
-		int q=2;
+		n2 = ((3 * (n * n) - n) / 2);
+		int ns = n - 1;
+		int nl = n;
+		int q = 2;
 		for (int s = n2; s > 0; s--) {
 			if (ns != 0) {
 				System.out.print(" ");
-				ns=ns-1;
-				nl=nl-1;
+				ns = ns - 1;
+				nl = nl - 1;
 			} else {
 				System.out.print("*");
-				nl=nl-1;
+				nl = nl - 1;
 			}
-			if (nl == 0) {
+			if (nl == 0 && s != 1) {
 				System.out.println();
-				ns=ns+n-q;
-				q=q-1;
-				nl=nl+n+q;
-				q=q+2;
-				
+				ns = ns + n - q;
+				q = q - 1;
+				nl = nl + n + q;
+				q = q + 2;
+
 			}
 		}
 

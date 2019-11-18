@@ -10,7 +10,7 @@ public class Rightriangle {
 		int n3=2;
 		for (int s = 0; s < n2; s++) {
 			System.out.print("*");
-			if (s == nl) {
+			if (s == nl  && s!=n2-1) {
 				System.out.println();
 				nl=nl+n3;
 				n3=n3+1;

@@ -6,18 +6,22 @@ public class Revercehypotenuse {
 		System.out.println("what's the Hypotenuse of your triangle?");
 		int n = y.nextInt();
 		double n2;
-		n2 = 2 * (n + 1) * ((0.5) * n);
+		n2 = (n + 1) * ((0.5) * n);
 		double nl = n2 - n + 1;
 		int n3 = n - 1;
 		for (double s = n2; s > 0; s--) {
 
-			System.out.print(" ");
-			if (s == nl) {
-				System.out.println("*");
+			if (s != nl) {
+				System.out.print(" ");
+			} else {
+				System.out.print("*");
+
+			}
+			if (s == nl && s != 1) {
+				System.out.println();
 				nl = nl - n3;
 				n3 = n3 - 1;
 			}
-
 		}
 	}
 }

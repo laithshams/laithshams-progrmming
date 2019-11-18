@@ -8,7 +8,7 @@ public class Square {
 		for (int s = 0; s < n2; s++) {
 			System.out.print("*");
 			int nl = (s+1) % n;
-			if (nl == 0) {
+			if (nl == 0 && s!=n2-1) {
 				System.out.println();
 			}
 
