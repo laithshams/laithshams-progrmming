@@ -45,10 +45,17 @@ public class Calculator {
 		while (true) {
 			char status = status();
 			switch (status) {
+			case's':
+				break;
 			case 'q':
 				return ;
+			default:
+				System.out.println("Wrong entry please try again");
+				status = status();
+				return;
 			}
 			System.out.println("operators: addition '+', subtract '-', multible '*', divide '/'");
+			try {
 			int n = readNumber();
 			char q = readOperation();
 			int n1 = readNumber();
@@ -69,6 +76,10 @@ public class Calculator {
 				int div = divide(n, n1);
 				System.out.println(n + "/" + n1 + "=" + div);
 				break;
+			}
+			}
+			catch (Exception e) {
+				System.out.println("wrong entry...");
 			}
 		}
 	}
