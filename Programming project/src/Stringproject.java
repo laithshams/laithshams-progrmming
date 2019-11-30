@@ -4,6 +4,13 @@ public class Stringproject {
 	private static Scanner read;
 	private static Scanner read2;
 
+	private static char readChar() {
+		read2 = new Scanner(System.in);
+		System.out.print("enter the letter: ");
+		char readchar = read2.next().charAt(0);
+		return readchar;
+	}
+
 	public static String readString() {
 		read = new Scanner(System.in);
 		String readstr = read.nextLine();
@@ -11,21 +18,15 @@ public class Stringproject {
 	}
 
 	public static String caseS(String str) {
-		String sym = null;
+		String sym = " symmetric";
 		char strc[] = str.toCharArray();
-		int strl = str.length();
-		int strl1 = strl - 1;
-		for (int i = 0; i < strl - 1; i++) {
-			if (strc[i] == strc[strl1]) {
-				strl1 = strl1 - 1;
-			} else {
+		int strl = str.length() - 1;
+		for (int i = 0; i < strl; i++) {
+			if (strc[i] != strc[strl]) {
 				sym = "n't symmetric";
 				break;
 			}
-			if (sym == null) {
-				sym = " symmetric";
-				strl++;
-			}
+			strl--;
 		}
 		return sym;
 	}
@@ -76,29 +77,23 @@ public class Stringproject {
 	}
 
 	public static String thanksMessage() {
-		String thanks = "thank you for using our program\nif you want to try again choose one of the functions, else choose exit:";
+		String thanks = "thank you for using our program\nif you want to try again choose one of the functions, else choose exit.";
 		return thanks;
-	}
-
-	private static char readChar() {
-		read2 = new Scanner(System.in);
-		System.out.println("enter the letter");
-		char readchar = read2.next().charAt(0);
-		return readchar;
 	}
 
 	public static void main(String[] args) {
 		String str;
 		String[] strs;
 		int max, min, maxarea, minarea;
-		System.out.println("this program has 3 functions choose one of them to continue or choose exit to exit:");
+		System.out.println(
+				"welcome to our program\nthis program has 3 functions choose one of them to continue or choose exit to exit:");
 		while (true) {
 			System.out.println("s-symmetric\nm-minimum and maximum\nc-chart\ne-exit");
 			char func = readChar();
 			String thanks = thanksMessage();
 			switch (func) {
 			case 's':
-				System.out.println("enter the word");
+				System.out.print("you chose s-symmetric let's start:\nenter the word: ");
 				str = readString();
 				String sym = caseS(str); // sym = symmetric or no n't symmetric.
 				System.out.println(str + " is" + sym + "\n\n" + thanks);
@@ -120,7 +115,8 @@ public class Stringproject {
 					}
 					System.out.println("\n" + thanks);
 				} catch (Exception e) {
-					System.out.println("Something went wrong...it could be your entry\n    please check and try again.");
+					System.out
+							.println("Something went wrong...it could be your entry\n    please check and try again.");
 				}
 				break;
 			case 'c':
@@ -156,7 +152,8 @@ public class Stringproject {
 						}
 						System.out.println("\n" + thanks);
 					} else {
-						System.out.println("We can't calculate the area...\nyou need to enter more than one number\nplease try again");
+						System.out.println(
+								"We can't calculate the area...\nyou need to enter more than one number\nplease try again\n");
 					}
 				} catch (Exception e) {
 					System.out
@@ -164,6 +161,7 @@ public class Stringproject {
 				}
 				break;
 			case 'e':
+				System.out.println("good bye (:");
 				return;
 			default:
 				System.out.println("Wrong entry please try again");
