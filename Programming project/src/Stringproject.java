@@ -128,9 +128,9 @@ public class Stringproject {
 					intstrc = convertStr(strs);
 					int[] area = findArea(intstrc);
 					max = caseMax(intstrc);
-					System.out.println("Maximum = " + max);
+					System.out.println("Highest = " + max);
 					min = caseMin(intstrc);
-					System.out.println("Minimum = " + min);
+					System.out.println("Lowest = " + min);
 					if (max == min) {
 						System.out.println("chart has constant data");
 					}
