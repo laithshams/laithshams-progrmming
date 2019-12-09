@@ -1,5 +1,7 @@
 import java.util.Scanner;
 
+import javax.swing.JFrame;
+
 public class Stringproject {
 	private static Scanner read;
 	private static Scanner read2;
