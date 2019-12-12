@@ -15,7 +15,7 @@ public class Swingcalc {
 	public static void main(String[] args) {
 		JFrame frm = new JFrame("Calculator");
 		frm.setLayout(new GridLayout(5, 1));
-		frm.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
+		//frm.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
 		frm.setSize(400, 400);
 		JTextField txt = new JTextField();
 		frm.add(txt);
