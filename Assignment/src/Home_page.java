@@ -4,14 +4,19 @@ import javax.swing.JFrame;
 import java.awt.GridBagLayout;
 import javax.swing.JLabel;
 import java.awt.GridBagConstraints;
-import java.awt.Insets;
 import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.Color;
+import java.awt.GridLayout;
+import javax.swing.JPanel;
 
 public class Home_page {
 
-	private JFrame frmHomePage;
+	public JFrame homepage;
+	public JButton bportal;
+	public JButton eportal;
+	public JButton calc;
+	public JButton complaint;
 
 	/**
 	 * Launch the application.
@@ -21,7 +26,7 @@ public class Home_page {
 			public void run() {
 				try {
 					Home_page window = new Home_page();
-					window.frmHomePage.setVisible(true);
+					window.homepage.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -40,70 +45,101 @@ public class Home_page {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frmHomePage = new JFrame();
-		frmHomePage.setTitle("Home page");
-		frmHomePage.getContentPane().setBackground(Color.CYAN);
-		frmHomePage.setBounds(100, 100, 450, 300);
-		frmHomePage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		GridBagLayout gridBagLayout = new GridBagLayout();
-		gridBagLayout.columnWidths = new int[] {430};
-		gridBagLayout.rowHeights = new int[] {60, 40, 40, 40, 40, 40};
-		gridBagLayout.columnWeights = new double[]{1.0};
-		gridBagLayout.rowWeights = new double[]{1.0, 1.0, 1.0, 1.0, 1.0, 1.0};
-		frmHomePage.getContentPane().setLayout(gridBagLayout);
+		homepage = new JFrame();
+		homepage.setTitle("Home page");
+		homepage.getContentPane().setBackground(new Color(175, 238, 238));
+		homepage.setBounds(100, 100, 450, 300);
+		homepage.setLocationRelativeTo(null);
+		homepage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		homepage.getContentPane().setLayout(new GridLayout(0, 1, 0, 0));
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(new Color(175, 238, 238));
+		homepage.getContentPane().add(panel);
 		
 		JLabel lblNewLabel = new JLabel("Ministry of Water and Irrigation");
-		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 30));
-		GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
-		gbc_lblNewLabel.anchor = GridBagConstraints.NORTH;
-		gbc_lblNewLabel.insets = new Insets(0, 0, 5, 0);
-		gbc_lblNewLabel.gridx = 0;
-		gbc_lblNewLabel.gridy = 0;
-		frmHomePage.getContentPane().add(lblNewLabel, gbc_lblNewLabel);
+		panel.add(lblNewLabel);
+		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 31));
 		
-		JButton btnNewButton = new JButton("Building's Portal");
-		btnNewButton.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 25));
-		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
-		gbc_btnNewButton.insets = new Insets(0, 0, 5, 0);
-		gbc_btnNewButton.fill = GridBagConstraints.HORIZONTAL;
-		gbc_btnNewButton.gridx = 0;
-		gbc_btnNewButton.gridy = 1;
-		frmHomePage.getContentPane().add(btnNewButton, gbc_btnNewButton);
+		JPanel panel_1 = new JPanel();
+		panel_1.setBackground(new Color(175, 238, 238));
+		homepage.getContentPane().add(panel_1);
+		GridBagLayout gbl_panel_1 = new GridBagLayout();
+		gbl_panel_1.columnWidths = new int[] {450};
+		gbl_panel_1.rowHeights = new int[] {45};
+		gbl_panel_1.columnWeights = new double[]{1.0};
+		gbl_panel_1.rowWeights = new double[]{0.0};
+		panel_1.setLayout(gbl_panel_1);
 		
-		JButton btnEmployeesPortal = new JButton("Employee's Portal");
-		btnEmployeesPortal.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 25));
-		GridBagConstraints gbc_btnEmployeesPortal = new GridBagConstraints();
-		gbc_btnEmployeesPortal.fill = GridBagConstraints.HORIZONTAL;
-		gbc_btnEmployeesPortal.insets = new Insets(0, 0, 5, 0);
-		gbc_btnEmployeesPortal.gridx = 0;
-		gbc_btnEmployeesPortal.gridy = 2;
-		frmHomePage.getContentPane().add(btnEmployeesPortal, gbc_btnEmployeesPortal);
+		bportal = new JButton("Building's Portal");
+		bportal.setForeground(new Color(255, 250, 250));
+		bportal.setBackground(new Color(47, 79, 79));
+		bportal.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 25));
+		GridBagConstraints gbc_bportal = new GridBagConstraints();
+		gbc_bportal.fill = GridBagConstraints.HORIZONTAL;
+		gbc_bportal.gridx = 0;
+		gbc_bportal.gridy = 0;
+		panel_1.add(bportal, gbc_bportal);
 		
-		JButton btnWaterCalculator = new JButton("Water Calculator");
-		btnWaterCalculator.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 25));
-		GridBagConstraints gbc_btnWaterCalculator = new GridBagConstraints();
-		gbc_btnWaterCalculator.fill = GridBagConstraints.HORIZONTAL;
-		gbc_btnWaterCalculator.insets = new Insets(0, 0, 5, 0);
-		gbc_btnWaterCalculator.gridx = 0;
-		gbc_btnWaterCalculator.gridy = 3;
-		frmHomePage.getContentPane().add(btnWaterCalculator, gbc_btnWaterCalculator);
+		JPanel panel_2 = new JPanel();
+		panel_2.setBackground(new Color(175, 238, 238));
+		homepage.getContentPane().add(panel_2);
+		GridBagLayout gbl_panel_2 = new GridBagLayout();
+		gbl_panel_2.columnWidths = new int[] {450};
+		gbl_panel_2.rowHeights = new int[] {45};
+		gbl_panel_2.columnWeights = new double[]{1.0};
+		gbl_panel_2.rowWeights = new double[]{0.0};
+		panel_2.setLayout(gbl_panel_2);
 		
-		JButton btnCitizenComplaint = new JButton("Citizen Complaint");
-		btnCitizenComplaint.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 25));
-		GridBagConstraints gbc_btnCitizenComplaint = new GridBagConstraints();
-		gbc_btnCitizenComplaint.fill = GridBagConstraints.HORIZONTAL;
-		gbc_btnCitizenComplaint.insets = new Insets(0, 0, 5, 0);
-		gbc_btnCitizenComplaint.gridx = 0;
-		gbc_btnCitizenComplaint.gridy = 4;
-		frmHomePage.getContentPane().add(btnCitizenComplaint, gbc_btnCitizenComplaint);
+		eportal = new JButton("Employee's Portal");
+		eportal.setBackground(new Color(47, 79, 79));
+		eportal.setForeground(new Color(255, 250, 250));
+		eportal.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 25));
+		GridBagConstraints gbc_eportal = new GridBagConstraints();
+		gbc_eportal.fill = GridBagConstraints.HORIZONTAL;
+		gbc_eportal.gridx = 0;
+		gbc_eportal.gridy = 0;
+		panel_2.add(eportal, gbc_eportal);
 		
-		JButton btnNewButton_1 = new JButton("Cash");
-		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 25));
-		GridBagConstraints gbc_btnNewButton_1 = new GridBagConstraints();
-		gbc_btnNewButton_1.fill = GridBagConstraints.HORIZONTAL;
-		gbc_btnNewButton_1.gridx = 0;
-		gbc_btnNewButton_1.gridy = 5;
-		frmHomePage.getContentPane().add(btnNewButton_1, gbc_btnNewButton_1);
+		JPanel panel_3 = new JPanel();
+		panel_3.setBackground(new Color(175, 238, 238));
+		homepage.getContentPane().add(panel_3);
+		GridBagLayout gbl_panel_3 = new GridBagLayout();
+		gbl_panel_3.columnWidths = new int[] {450};
+		gbl_panel_3.rowHeights = new int[] {45};
+		gbl_panel_3.columnWeights = new double[]{1.0};
+		gbl_panel_3.rowWeights = new double[]{0.0};
+		panel_3.setLayout(gbl_panel_3);
+		
+		calc = new JButton("Water Calculator");
+		calc.setForeground(new Color(255, 250, 250));
+		calc.setBackground(new Color(47, 79, 79));
+		calc.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 25));
+		GridBagConstraints gbc_calc = new GridBagConstraints();
+		gbc_calc.fill = GridBagConstraints.HORIZONTAL;
+		gbc_calc.gridx = 0;
+		gbc_calc.gridy = 0;
+		panel_3.add(calc, gbc_calc);
+		
+		JPanel panel_4 = new JPanel();
+		panel_4.setBackground(new Color(175, 238, 238));
+		homepage.getContentPane().add(panel_4);
+		GridBagLayout gbl_panel_4 = new GridBagLayout();
+		gbl_panel_4.columnWidths = new int[] {450};
+		gbl_panel_4.rowHeights = new int[] {45};
+		gbl_panel_4.columnWeights = new double[]{1.0};
+		gbl_panel_4.rowWeights = new double[]{0.0};
+		panel_4.setLayout(gbl_panel_4);
+		
+		complaint = new JButton("Citizen Complaint");
+		complaint.setBackground(new Color(47, 79, 79));
+		complaint.setForeground(new Color(255, 250, 250));
+		GridBagConstraints gbc_complaint = new GridBagConstraints();
+		gbc_complaint.fill = GridBagConstraints.HORIZONTAL;
+		gbc_complaint.gridx = 0;
+		gbc_complaint.gridy = 0;
+		panel_4.add(complaint, gbc_complaint);
+		complaint.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 25));
 	}
 
 }
