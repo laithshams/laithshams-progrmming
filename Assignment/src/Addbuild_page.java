@@ -1,0 +1,104 @@
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import java.awt.Color;
+import java.awt.GridLayout;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.JPanel;
+import java.awt.Window.Type;
+import java.awt.Font;
+import java.awt.GridBagLayout;
+import javax.swing.JButton;
+import java.awt.GridBagConstraints;
+import java.awt.Insets;
+
+public class Addbuild_page {
+
+	public JFrame addbuild;
+	public JLabel success;
+	public JTextField ID;
+	public JButton add;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Addbuild_page window = new Addbuild_page();
+					window.addbuild.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public Addbuild_page() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		addbuild = new JFrame();
+		addbuild.setType(Type.UTILITY);
+		addbuild.setResizable(false);
+		addbuild.getContentPane().setBackground(new Color(175, 238, 238));
+		addbuild.getContentPane().setLayout(new GridLayout(3, 0, 0, 0));
+		
+		JLabel lblOwnerId = new JLabel("Owner ID:");
+		addbuild.getContentPane().add(lblOwnerId);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBackground(new Color(175, 238, 238));
+		addbuild.getContentPane().add(panel_1);
+		GridBagLayout gbl_panel_1 = new GridBagLayout();
+		gbl_panel_1.columnWidths = new int[] {130, 65};
+		gbl_panel_1.rowHeights = new int[] {35};
+		gbl_panel_1.columnWeights = new double[]{1.0, 1.0};
+		gbl_panel_1.rowWeights = new double[]{0.0};
+		panel_1.setLayout(gbl_panel_1);
+		
+		ID = new JTextField();
+		GridBagConstraints gbc_ID = new GridBagConstraints();
+		gbc_ID.insets = new Insets(0, 0, 0, 5);
+		gbc_ID.fill = GridBagConstraints.HORIZONTAL;
+		gbc_ID.gridx = 0;
+		gbc_ID.gridy = 0;
+		panel_1.add(ID, gbc_ID);
+		ID.setColumns(10);
+		
+		add = new JButton("Add");
+		add.setFont(new Font("Times New Roman", Font.BOLD, 15));
+		GridBagConstraints gbc_add = new GridBagConstraints();
+		gbc_add.gridx = 1;
+		gbc_add.gridy = 0;
+		panel_1.add(add, gbc_add);
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(new Color(47, 79, 79));
+		addbuild.getContentPane().add(panel);
+		panel.setLayout(new GridLayout(1, 0, 0, 0));
+		
+		JLabel lblStatus = new JLabel("Status:");
+		lblStatus.setForeground(new Color(255, 250, 250));
+		lblStatus.setFont(new Font("Times New Roman", Font.BOLD, 15));
+		panel.add(lblStatus);
+		
+		success = new JLabel("Un\\Success");
+		success.setFont(new Font("Times New Roman", Font.BOLD, 15));
+		success.setForeground(new Color(255, 250, 250));
+		panel.add(success);
+		addbuild.setBounds(100, 100, 200, 150);
+		addbuild.setLocationRelativeTo(null);
+		addbuild.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+
+}
