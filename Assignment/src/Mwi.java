@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Mwi {
+	private static int counter;
+
 	public static void main(String[] args) {
 
 		ArrayList<Building> building = new ArrayList<Building>();
@@ -38,7 +40,8 @@ public class Mwi {
 		Employees_page emp = new Employees_page();
 		Editemp_page editemp = new Editemp_page();
 		Addemp_page addemp = new Addemp_page();
-		Complaint_page complaint = new Complaint_page();
+		Cash_page cash = new Cash_page();
+		counter = 0;
 
 		login.loginsystem.setVisible(true);
 // Username: admin, Password: admin -> open home page
@@ -276,6 +279,7 @@ public class Mwi {
 						if (s == 1) {
 							billpage.pay.addActionListener(new ActionListener() {
 								public void actionPerformed(ActionEvent e) {
+									counter = counter + bireader.readamount();
 									String success = paybill(bill);
 									billpage.success.setText(success);
 
@@ -454,6 +458,7 @@ public class Mwi {
 												ereader.tname = addemp.tname.getText();
 												ereader.lname = addemp.lname.getText();
 												ereader.date = addemp.date.getText();
+												ereader.position = addemp.position.getText();
 												ereader.entersalary(Integer.parseInt(addemp.salary.getText()));
 												ereader.enteryinc(Integer.parseInt(addemp.yinc.getText()));
 												if (ereader.readsalary() == 0 || ereader.readyinc() == 0) {
@@ -508,19 +513,32 @@ public class Mwi {
 			}
 		});
 
-		home.complaint.addActionListener(new ActionListener() {
+		home.cash.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				complaint.complaint.setBounds(home.homepage.getBounds());
-				complaint.complaint.setVisible(true);
+				cash.cashpage.setBounds(home.homepage.getBounds());
+				cash.cashpage.setVisible(true);
 				home.homepage.setVisible(false);
+				cash.cash.setText(String.valueOf(counter));
+			}
+		});
+		
+		cash.zero.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				counter = 0;
+				cash.cash.setText(String.valueOf(counter));
+				if (cash.cash.getText().equals("0")) {
+					cash.success.setText("Success");
+				} else {
+					cash.success.setText("Unsuccess");
+				}
 			}
 		});
 
-		complaint.back.addActionListener(new ActionListener() {
+		cash.back.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				home.homepage.setBounds(complaint.complaint.getBounds());
+				home.homepage.setBounds(cash.cashpage.getBounds());
 				home.homepage.setVisible(true);
-				complaint.complaint.setVisible(false);
+				cash.cashpage.setVisible(false);
 			}
 		});
 

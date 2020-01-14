@@ -21,8 +21,8 @@ public class Editbuild_page {
 	public JTextField region;
 	public JTextField village;
 	public JTextField neighborhood;
-	public JTextField tank;
 	public JTextField land;
+	public JTextField tank;
 
 	/**
 	 * Launch the application.
@@ -131,42 +131,42 @@ public class Editbuild_page {
 		gbc_neighborhood.gridy = 1;
 		panel_1.add(neighborhood, gbc_neighborhood);
 		
-		JLabel label_3 = new JLabel("Tank No.");
-		label_3.setFont(new Font("Times New Roman", Font.PLAIN, 15));
-		GridBagConstraints gbc_label_3 = new GridBagConstraints();
-		gbc_label_3.anchor = GridBagConstraints.EAST;
-		gbc_label_3.insets = new Insets(0, 0, 5, 5);
-		gbc_label_3.gridx = 2;
-		gbc_label_3.gridy = 1;
-		panel_1.add(label_3, gbc_label_3);
-		
-		tank = new JTextField();
-		tank.setColumns(10);
-		GridBagConstraints gbc_tank = new GridBagConstraints();
-		gbc_tank.fill = GridBagConstraints.HORIZONTAL;
-		gbc_tank.insets = new Insets(0, 0, 5, 0);
-		gbc_tank.gridx = 3;
-		gbc_tank.gridy = 1;
-		panel_1.add(tank, gbc_tank);
-		
-		JLabel label_4 = new JLabel("Land No.");
-		label_4.setFont(new Font("Times New Roman", Font.PLAIN, 15));
-		GridBagConstraints gbc_label_4 = new GridBagConstraints();
-		gbc_label_4.anchor = GridBagConstraints.EAST;
-		gbc_label_4.insets = new Insets(0, 0, 0, 5);
-		gbc_label_4.gridx = 1;
-		gbc_label_4.gridy = 2;
-		panel_1.add(label_4, gbc_label_4);
+		JLabel lblLandNo = new JLabel("Land No.");
+		lblLandNo.setFont(new Font("Times New Roman", Font.PLAIN, 15));
+		GridBagConstraints gbc_lblLandNo = new GridBagConstraints();
+		gbc_lblLandNo.anchor = GridBagConstraints.EAST;
+		gbc_lblLandNo.insets = new Insets(0, 0, 5, 5);
+		gbc_lblLandNo.gridx = 2;
+		gbc_lblLandNo.gridy = 1;
+		panel_1.add(lblLandNo, gbc_lblLandNo);
 		
 		land = new JTextField();
-		land.setFont(new Font("Times New Roman", Font.BOLD, 12));
 		land.setColumns(10);
 		GridBagConstraints gbc_land = new GridBagConstraints();
 		gbc_land.fill = GridBagConstraints.HORIZONTAL;
-		gbc_land.insets = new Insets(0, 0, 0, 5);
-		gbc_land.gridx = 2;
-		gbc_land.gridy = 2;
+		gbc_land.insets = new Insets(0, 0, 5, 0);
+		gbc_land.gridx = 3;
+		gbc_land.gridy = 1;
 		panel_1.add(land, gbc_land);
+		
+		JLabel lblTankNo = new JLabel("Tank No.");
+		lblTankNo.setFont(new Font("Times New Roman", Font.PLAIN, 15));
+		GridBagConstraints gbc_lblTankNo = new GridBagConstraints();
+		gbc_lblTankNo.anchor = GridBagConstraints.EAST;
+		gbc_lblTankNo.insets = new Insets(0, 0, 0, 5);
+		gbc_lblTankNo.gridx = 1;
+		gbc_lblTankNo.gridy = 2;
+		panel_1.add(lblTankNo, gbc_lblTankNo);
+		
+		tank = new JTextField();
+		tank.setFont(new Font("Times New Roman", Font.BOLD, 12));
+		tank.setColumns(10);
+		GridBagConstraints gbc_tank = new GridBagConstraints();
+		gbc_tank.fill = GridBagConstraints.HORIZONTAL;
+		gbc_tank.insets = new Insets(0, 0, 0, 5);
+		gbc_tank.gridx = 2;
+		gbc_tank.gridy = 2;
+		panel_1.add(tank, gbc_tank);
 		
 		JPanel panel_2 = new JPanel();
 		panel_2.setBackground(new Color(175, 238, 238));

@@ -16,7 +16,7 @@ public class Home_page {
 	public JButton bportal;
 	public JButton eportal;
 	public JButton calc;
-	public JButton complaint;
+	public JButton cash;
 
 	/**
 	 * Launch the application.
@@ -131,15 +131,15 @@ public class Home_page {
 		gbl_panel_4.rowWeights = new double[]{0.0};
 		panel_4.setLayout(gbl_panel_4);
 		
-		complaint = new JButton("Citizen Complaint");
-		complaint.setBackground(new Color(47, 79, 79));
-		complaint.setForeground(new Color(255, 250, 250));
-		GridBagConstraints gbc_complaint = new GridBagConstraints();
-		gbc_complaint.fill = GridBagConstraints.HORIZONTAL;
-		gbc_complaint.gridx = 0;
-		gbc_complaint.gridy = 0;
-		panel_4.add(complaint, gbc_complaint);
-		complaint.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 25));
+		cash = new JButton("Cash");
+		cash.setBackground(new Color(47, 79, 79));
+		cash.setForeground(new Color(255, 250, 250));
+		GridBagConstraints gbc_cash = new GridBagConstraints();
+		gbc_cash.fill = GridBagConstraints.HORIZONTAL;
+		gbc_cash.gridx = 0;
+		gbc_cash.gridy = 0;
+		panel_4.add(cash, gbc_cash);
+		cash.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 25));
 	}
 
 }
