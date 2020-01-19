@@ -15,7 +15,6 @@ public class Home_page {
 	public JFrame homepage;
 	public JButton bportal;
 	public JButton eportal;
-	public JButton calc;
 	public JButton cash;
 
 	/**
@@ -100,26 +99,6 @@ public class Home_page {
 		gbc_eportal.gridx = 0;
 		gbc_eportal.gridy = 0;
 		panel_2.add(eportal, gbc_eportal);
-		
-		JPanel panel_3 = new JPanel();
-		panel_3.setBackground(new Color(175, 238, 238));
-		homepage.getContentPane().add(panel_3);
-		GridBagLayout gbl_panel_3 = new GridBagLayout();
-		gbl_panel_3.columnWidths = new int[] {450};
-		gbl_panel_3.rowHeights = new int[] {45};
-		gbl_panel_3.columnWeights = new double[]{1.0};
-		gbl_panel_3.rowWeights = new double[]{0.0};
-		panel_3.setLayout(gbl_panel_3);
-		
-		calc = new JButton("Water Calculator");
-		calc.setForeground(new Color(255, 250, 250));
-		calc.setBackground(new Color(47, 79, 79));
-		calc.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 25));
-		GridBagConstraints gbc_calc = new GridBagConstraints();
-		gbc_calc.fill = GridBagConstraints.HORIZONTAL;
-		gbc_calc.gridx = 0;
-		gbc_calc.gridy = 0;
-		panel_3.add(calc, gbc_calc);
 		
 		JPanel panel_4 = new JPanel();
 		panel_4.setBackground(new Color(175, 238, 238));

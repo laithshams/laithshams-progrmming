@@ -395,9 +395,9 @@ public class Mwi {
 										ereader.tname = employee.get(c).tname;
 										ereader.lname = employee.get(c).lname;
 										ereader.date = employee.get(c).date;
-										editemp.editemp.setBounds(build.buildportal.getBounds());
+										editemp.editemp.setBounds(emp.Empportal.getBounds());
 										editemp.editemp.setVisible(true);
-										build.buildportal.setVisible(false);
+										emp.Empportal.setVisible(false);
 										editemp.edit.addActionListener(new ActionListener() {
 											public void actionPerformed(ActionEvent e) {
 												if (editemp.position.getText().isEmpty()
