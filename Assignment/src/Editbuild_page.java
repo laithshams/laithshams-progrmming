@@ -17,7 +17,6 @@ public class Editbuild_page {
 	public JFrame editbuild;
 	public JButton edit;
 	public JButton back;
-	public JLabel success;
 	public JTextField region;
 	public JTextField village;
 	public JTextField neighborhood;
@@ -68,10 +67,10 @@ public class Editbuild_page {
 		panel_1.setBackground(new Color(175, 238, 238));
 		editbuild.getContentPane().add(panel_1);
 		GridBagLayout gbl_panel_1 = new GridBagLayout();
-		gbl_panel_1.columnWidths = new int[]{108, 108, 108, 108, 0};
-		gbl_panel_1.rowHeights = new int[]{23, 23, 23, 0};
-		gbl_panel_1.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-		gbl_panel_1.rowWeights = new double[]{1.0, 1.0, 1.0, Double.MIN_VALUE};
+		gbl_panel_1.columnWidths = new int[] {108, 108, 108, 108};
+		gbl_panel_1.rowHeights = new int[] {23, 23, 23};
+		gbl_panel_1.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0};
+		gbl_panel_1.rowWeights = new double[]{1.0, 1.0, 1.0};
 		panel_1.setLayout(gbl_panel_1);
 		
 		JLabel label = new JLabel("Region No.");
@@ -141,6 +140,7 @@ public class Editbuild_page {
 		panel_1.add(lblLandNo, gbc_lblLandNo);
 		
 		land = new JTextField();
+		land.setFont(new Font("Times New Roman", Font.BOLD, 12));
 		land.setColumns(10);
 		GridBagConstraints gbc_land = new GridBagConstraints();
 		gbc_land.fill = GridBagConstraints.HORIZONTAL;
@@ -173,9 +173,9 @@ public class Editbuild_page {
 		editbuild.getContentPane().add(panel_2);
 		GridBagLayout gbl_panel_2 = new GridBagLayout();
 		gbl_panel_2.columnWidths = new int[] {390, 50};
-		gbl_panel_2.rowHeights = new int[] {35, 35};
+		gbl_panel_2.rowHeights = new int[] {70};
 		gbl_panel_2.columnWeights = new double[]{1.0, 0.0};
-		gbl_panel_2.rowWeights = new double[]{1.0, 1.0};
+		gbl_panel_2.rowWeights = new double[]{1.0};
 		panel_2.setLayout(gbl_panel_2);
 		
 		edit = new JButton("Edit");
@@ -194,21 +194,12 @@ public class Editbuild_page {
 		back.setFont(new Font("Times New Roman", Font.BOLD, 20));
 		back.setBackground(new Color(47, 79, 79));
 		GridBagConstraints gbc_back = new GridBagConstraints();
+		gbc_back.anchor = GridBagConstraints.SOUTH;
 		gbc_back.insets = new Insets(0, 0, 5, 0);
 		gbc_back.fill = GridBagConstraints.HORIZONTAL;
 		gbc_back.gridx = 1;
 		gbc_back.gridy = 0;
 		panel_2.add(back, gbc_back);
-		
-		success = new JLabel("Un\\Success");
-		success.setForeground(new Color(0, 0, 0));
-		success.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		GridBagConstraints gbc_success = new GridBagConstraints();
-		gbc_success.gridwidth = 2;
-		gbc_success.insets = new Insets(0, 0, 0, 5);
-		gbc_success.gridx = 0;
-		gbc_success.gridy = 1;
-		panel_2.add(success, gbc_success);
 		editbuild.setBounds(100, 100, 450, 300);
 		editbuild.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}

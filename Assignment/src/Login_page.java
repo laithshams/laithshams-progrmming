@@ -83,6 +83,7 @@ public class Login_page {
 		panel_1.add(lblUsername, gbc_lblUsername);
 		
 		username = new JTextField();
+		username.setFont(new Font("Times New Roman", Font.BOLD, 12));
 		GridBagConstraints gbc_username = new GridBagConstraints();
 		gbc_username.insets = new Insets(5, 0, 0, 0);
 		gbc_username.fill = GridBagConstraints.HORIZONTAL;
@@ -111,6 +112,7 @@ public class Login_page {
 		panel_2.add(lblPassword, gbc_lblPassword);
 		
 		password = new JPasswordField();
+		password.setFont(new Font("Times New Roman", Font.BOLD, 12));
 		GridBagConstraints gbc_password = new GridBagConstraints();
 		gbc_password.fill = GridBagConstraints.HORIZONTAL;
 		gbc_password.gridx = 1;

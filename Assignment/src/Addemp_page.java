@@ -11,7 +11,6 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import javax.swing.JButton;
 import javax.swing.JTextField;
-import com.jgoodies.forms.factories.DefaultComponentFactory;
 
 public class Addemp_page {
 
@@ -26,7 +25,6 @@ public class Addemp_page {
 	public JTextField yinc;
 	public JButton add;
 	public JButton back;
-	public JLabel success;
 
 	/**
 	 * Launch the application.
@@ -88,6 +86,7 @@ public class Addemp_page {
 		panel_1.add(label_1, gbc_label_1);
 		
 		fname = new JTextField();
+		fname.setFont(new Font("Times New Roman", Font.BOLD, 12));
 		GridBagConstraints gbc_fname = new GridBagConstraints();
 		gbc_fname.insets = new Insets(0, 0, 5, 5);
 		gbc_fname.fill = GridBagConstraints.HORIZONTAL;
@@ -97,6 +96,7 @@ public class Addemp_page {
 		fname.setColumns(10);
 		
 		sname = new JTextField();
+		sname.setFont(new Font("Times New Roman", Font.BOLD, 12));
 		GridBagConstraints gbc_sname = new GridBagConstraints();
 		gbc_sname.insets = new Insets(0, 0, 5, 5);
 		gbc_sname.fill = GridBagConstraints.HORIZONTAL;
@@ -106,6 +106,7 @@ public class Addemp_page {
 		sname.setColumns(10);
 		
 		tname = new JTextField();
+		tname.setFont(new Font("Times New Roman", Font.BOLD, 12));
 		GridBagConstraints gbc_tname = new GridBagConstraints();
 		gbc_tname.insets = new Insets(0, 0, 5, 5);
 		gbc_tname.fill = GridBagConstraints.HORIZONTAL;
@@ -115,6 +116,7 @@ public class Addemp_page {
 		tname.setColumns(10);
 		
 		lname = new JTextField();
+		lname.setFont(new Font("Times New Roman", Font.BOLD, 12));
 		GridBagConstraints gbc_lname = new GridBagConstraints();
 		gbc_lname.insets = new Insets(0, 0, 5, 0);
 		gbc_lname.fill = GridBagConstraints.HORIZONTAL;
@@ -135,6 +137,7 @@ public class Addemp_page {
 		panel_1.add(label_6, gbc_label_6);
 		
 		date = new JTextField();
+		date.setFont(new Font("Times New Roman", Font.BOLD, 12));
 		GridBagConstraints gbc_date = new GridBagConstraints();
 		gbc_date.insets = new Insets(0, 0, 5, 5);
 		gbc_date.fill = GridBagConstraints.HORIZONTAL;
@@ -154,6 +157,7 @@ public class Addemp_page {
 		panel_1.add(label_8, gbc_label_8);
 		
 		position = new JTextField();
+		position.setFont(new Font("Times New Roman", Font.BOLD, 12));
 		GridBagConstraints gbc_position = new GridBagConstraints();
 		gbc_position.insets = new Insets(0, 0, 5, 0);
 		gbc_position.fill = GridBagConstraints.HORIZONTAL;
@@ -173,6 +177,7 @@ public class Addemp_page {
 		panel_1.add(label_10, gbc_label_10);
 		
 		salary = new JTextField();
+		salary.setFont(new Font("Times New Roman", Font.BOLD, 12));
 		GridBagConstraints gbc_salary = new GridBagConstraints();
 		gbc_salary.insets = new Insets(0, 0, 0, 5);
 		gbc_salary.fill = GridBagConstraints.HORIZONTAL;
@@ -193,6 +198,7 @@ public class Addemp_page {
 		panel_1.add(label_12, gbc_label_12);
 		
 		yinc = new JTextField();
+		yinc.setFont(new Font("Times New Roman", Font.BOLD, 12));
 		GridBagConstraints gbc_yinc = new GridBagConstraints();
 		gbc_yinc.fill = GridBagConstraints.HORIZONTAL;
 		gbc_yinc.gridx = 4;
@@ -226,38 +232,12 @@ public class Addemp_page {
 		back.setFont(new Font("Times New Roman", Font.BOLD, 20));
 		back.setBackground(new Color(47, 79, 79));
 		GridBagConstraints gbc_back = new GridBagConstraints();
+		gbc_back.anchor = GridBagConstraints.SOUTH;
+		gbc_back.fill = GridBagConstraints.HORIZONTAL;
 		gbc_back.insets = new Insets(0, 0, 5, 0);
-		gbc_back.anchor = GridBagConstraints.EAST;
 		gbc_back.gridx = 1;
 		gbc_back.gridy = 0;
 		panel_2.add(back, gbc_back);
-		
-		JPanel panel_3 = new JPanel();
-		panel_3.setBackground(new Color(47, 79, 79));
-		addemp.getContentPane().add(panel_3);
-		GridBagLayout gbl_panel_3 = new GridBagLayout();
-		gbl_panel_3.columnWidths = new int[]{220, 220, 0};
-		gbl_panel_3.rowHeights = new int[]{65, 0};
-		gbl_panel_3.columnWeights = new double[]{1.0, 1.0, Double.MIN_VALUE};
-		gbl_panel_3.rowWeights = new double[]{1.0, Double.MIN_VALUE};
-		panel_3.setLayout(gbl_panel_3);
-		
-		JLabel label_14 = new JLabel("Status:");
-		label_14.setForeground(new Color(255, 250, 250));
-		label_14.setFont(new Font("Times New Roman", Font.BOLD, 25));
-		GridBagConstraints gbc_label_14 = new GridBagConstraints();
-		gbc_label_14.insets = new Insets(0, 0, 0, 5);
-		gbc_label_14.gridx = 0;
-		gbc_label_14.gridy = 0;
-		panel_3.add(label_14, gbc_label_14);
-		
-		success = DefaultComponentFactory.getInstance().createLabel("Un\\Success");
-		success.setForeground(new Color(255, 250, 250));
-		success.setFont(new Font("Times New Roman", Font.BOLD, 25));
-		GridBagConstraints gbc_success = new GridBagConstraints();
-		gbc_success.gridx = 1;
-		gbc_success.gridy = 0;
-		panel_3.add(success, gbc_success);
 		addemp.setBounds(100, 100, 450, 300);
 		addemp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}

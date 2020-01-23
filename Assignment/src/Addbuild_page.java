@@ -16,7 +16,6 @@ import java.awt.Insets;
 public class Addbuild_page {
 
 	public JFrame addbuild;
-	public JLabel success;
 	public JTextField ID;
 	public JButton add;
 
@@ -67,7 +66,9 @@ public class Addbuild_page {
 		panel_1.setLayout(gbl_panel_1);
 		
 		ID = new JTextField();
+		ID.setFont(new Font("Times New Roman", Font.BOLD, 12));
 		GridBagConstraints gbc_ID = new GridBagConstraints();
+		gbc_ID.gridwidth = 2;
 		gbc_ID.insets = new Insets(0, 0, 0, 5);
 		gbc_ID.fill = GridBagConstraints.HORIZONTAL;
 		gbc_ID.gridx = 0;
@@ -75,30 +76,27 @@ public class Addbuild_page {
 		panel_1.add(ID, gbc_ID);
 		ID.setColumns(10);
 		
-		add = new JButton("Add");
-		add.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		GridBagConstraints gbc_add = new GridBagConstraints();
-		gbc_add.gridx = 1;
-		gbc_add.gridy = 0;
-		panel_1.add(add, gbc_add);
-		
 		JPanel panel = new JPanel();
-		panel.setBackground(new Color(47, 79, 79));
+		panel.setBackground(new Color(175, 238, 238));
 		addbuild.getContentPane().add(panel);
-		panel.setLayout(new GridLayout(1, 0, 0, 0));
+		GridBagLayout gbl_panel = new GridBagLayout();
+		gbl_panel.columnWidths = new int[] {190};
+		gbl_panel.rowHeights = new int[] {40};
+		gbl_panel.columnWeights = new double[]{0.0};
+		gbl_panel.rowWeights = new double[]{0.0};
+		panel.setLayout(gbl_panel);
 		
-		JLabel lblStatus = new JLabel("Status:");
-		lblStatus.setForeground(new Color(255, 250, 250));
-		lblStatus.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		panel.add(lblStatus);
-		
-		success = new JLabel("Un\\Success");
-		success.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		success.setForeground(new Color(255, 250, 250));
-		panel.add(success);
+		add = new JButton("Add");
+		add.setForeground(new Color(255, 250, 250));
+		add.setBackground(new Color(47, 79, 79));
+		GridBagConstraints gbc_add = new GridBagConstraints();
+		gbc_add.fill = GridBagConstraints.HORIZONTAL;
+		gbc_add.gridx = 0;
+		gbc_add.gridy = 0;
+		panel.add(add, gbc_add);
+		add.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		addbuild.setBounds(100, 100, 200, 150);
 		addbuild.setLocationRelativeTo(null);
-		addbuild.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
 }

@@ -148,6 +148,7 @@ public class Buildings_page {
 		panel_1.add(lblNewLabel_2, gbc_lblNewLabel_2);
 		
 		land = new JTextField();
+		land.setFont(new Font("Times New Roman", Font.BOLD, 12));
 		GridBagConstraints gbc_land = new GridBagConstraints();
 		gbc_land.insets = new Insets(0, 0, 5, 0);
 		gbc_land.fill = GridBagConstraints.HORIZONTAL;

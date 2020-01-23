@@ -93,6 +93,7 @@ public class Employees_page {
 		panel_1.add(lblEmpId, gbc_lblEmpId);
 		
 		ID = new JTextField();
+		ID.setFont(new Font("Times New Roman", Font.BOLD, 12));
 		GridBagConstraints gbc_ID = new GridBagConstraints();
 		gbc_ID.insets = new Insets(0, 0, 0, 5);
 		gbc_ID.fill = GridBagConstraints.HORIZONTAL;

@@ -18,7 +18,6 @@ public class Bills_page {
 	public JLabel amount;
 	public JButton pay;
 	public JButton back;
-	public JLabel success;
 
 	/**
 	 * Launch the application.
@@ -53,7 +52,7 @@ public class Bills_page {
 		bills.setBounds(100, 100, 450, 300);
 		bills.setLocationRelativeTo(null);
 		bills.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		bills.getContentPane().setLayout(new GridLayout(4, 1, 0, 0));
+		bills.getContentPane().setLayout(new GridLayout(3, 1, 0, 0));
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(175, 238, 238));
@@ -116,37 +115,11 @@ public class Bills_page {
 		back.setFont(new Font("Times New Roman", Font.BOLD, 20));
 		back.setBackground(new Color(47, 79, 79));
 		GridBagConstraints gbc_back = new GridBagConstraints();
+		gbc_back.anchor = GridBagConstraints.SOUTH;
 		gbc_back.fill = GridBagConstraints.HORIZONTAL;
 		gbc_back.gridx = 1;
 		gbc_back.gridy = 0;
 		panel_1.add(back, gbc_back);
-		
-		JPanel panel_3 = new JPanel();
-		panel_3.setBackground(new Color(47, 79, 79));
-		bills.getContentPane().add(panel_3);
-		GridBagLayout gbl_panel_3 = new GridBagLayout();
-		gbl_panel_3.columnWidths = new int[] {220, 220};
-		gbl_panel_3.rowHeights = new int[] {65};
-		gbl_panel_3.columnWeights = new double[]{1.0, 1.0};
-		gbl_panel_3.rowWeights = new double[]{1.0};
-		panel_3.setLayout(gbl_panel_3);
-		
-		JLabel lblStatus = new JLabel("Status:");
-		lblStatus.setForeground(new Color(255, 250, 250));
-		lblStatus.setFont(new Font("Times New Roman", Font.BOLD, 25));
-		GridBagConstraints gbc_lblStatus = new GridBagConstraints();
-		gbc_lblStatus.insets = new Insets(0, 0, 0, 5);
-		gbc_lblStatus.gridx = 0;
-		gbc_lblStatus.gridy = 0;
-		panel_3.add(lblStatus, gbc_lblStatus);
-		
-		success = DefaultComponentFactory.getInstance().createLabel("Un\\Success");
-		success.setForeground(new Color(255, 250, 250));
-		success.setFont(new Font("Times New Roman", Font.BOLD, 25));
-		GridBagConstraints gbc_lblUnsuccess = new GridBagConstraints();
-		gbc_lblUnsuccess.gridx = 1;
-		gbc_lblUnsuccess.gridy = 0;
-		panel_3.add(success, gbc_lblUnsuccess);
 	}
 
 }

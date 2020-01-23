@@ -63,9 +63,9 @@ public class Cash_page {
 		panel_1.setBackground(new Color(175, 238, 238));
 		cashpage.getContentPane().add(panel_1);
 		GridBagLayout gbl_panel_1 = new GridBagLayout();
-		gbl_panel_1.columnWidths = new int[] {145, 145, 145};
+		gbl_panel_1.columnWidths = new int[] {145, 145, 73, 73};
 		gbl_panel_1.rowHeights = new int[] {45, 45};
-		gbl_panel_1.columnWeights = new double[]{1.0, 1.0, 0.0};
+		gbl_panel_1.columnWeights = new double[]{1.0, 1.0, 0.0, 0.0};
 		gbl_panel_1.rowWeights = new double[]{0.0, 1.0};
 		panel_1.setLayout(gbl_panel_1);
 		
@@ -91,7 +91,7 @@ public class Cash_page {
 		zero.setBackground(new Color(47, 79, 79));
 		GridBagConstraints gbc_zero = new GridBagConstraints();
 		gbc_zero.fill = GridBagConstraints.HORIZONTAL;
-		gbc_zero.gridwidth = 2;
+		gbc_zero.gridwidth = 3;
 		gbc_zero.insets = new Insets(0, 0, 0, 5);
 		gbc_zero.gridx = 0;
 		gbc_zero.gridy = 1;
@@ -102,7 +102,9 @@ public class Cash_page {
 		back.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		back.setBackground(new Color(47, 79, 79));
 		GridBagConstraints gbc_back = new GridBagConstraints();
-		gbc_back.gridx = 2;
+		gbc_back.anchor = GridBagConstraints.SOUTH;
+		gbc_back.fill = GridBagConstraints.HORIZONTAL;
+		gbc_back.gridx = 3;
 		gbc_back.gridy = 1;
 		panel_1.add(back, gbc_back);
 		
