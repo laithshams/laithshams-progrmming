@@ -40,12 +40,16 @@ public class Mwiportal {
 			public void actionPerformed(ActionEvent e) {
 				for (int i = 0; i < employee.size(); i++) {
 					if (login.username.getText().equals(employee.get(i).readID())
-							&& login.password.getText().equals("1234")
-							|| login.username.getText().equals("admin") && login.password.getText().equals("admin")) {
+							&& login.password.getText().equals("1234")) {
 						home.homepage.setBounds(login.loginsystem.getBounds());
 						home.homepage.setVisible(true);
 						login.loginsystem.setVisible(false);
 					}
+				}
+				if (login.username.getText().equals("admin") && login.password.getText().equals("admin")) {
+					home.homepage.setBounds(login.loginsystem.getBounds());
+					home.homepage.setVisible(true);
+					login.loginsystem.setVisible(false);
 				}
 			}
 		});
@@ -116,9 +120,35 @@ public class Mwiportal {
 									}
 								}
 							}
-
+							if (building.size() == 0) {
+								addbuild.addbuild.setVisible(true);
+								// continue adding Building
+								addbuild.add.addActionListener(new ActionListener() {
+									public void actionPerformed(ActionEvent e) {
+										String success = "ID's not Exist";
+										Success_page message = new Success_page();
+										message.message.setVisible(true);
+										breader.enterID(addbuild.ID.getText());
+										if (breader.readID().equals("")) {
+											success = "Wrong entry";
+										} else {
+											for (int i = 0; i < owner.size(); i++) {
+												if (breader.readID().equals(owner.get(i).readID())) {
+													success = Newbuild(breader);
+													addbuild.addbuild.setVisible(false);
+													message.success.setText(success);
+													i = owner.size() + 1;
+													if (success.equals("Building has been added successfuly")) {
+														building.add(breader);
+													}
+												}
+											}
+										}
+										message.success.setText(success);
+									}
+								});
+							}
 						}
-
 					}
 				});
 				// edit information of building
@@ -139,6 +169,11 @@ public class Mwiportal {
 							build.land.setText("required");
 							build.tank.setText("required");
 						} else {
+							if (building.size() == 0) {
+								Success_page message = new Success_page();
+								message.success.setText("building isn't exist");
+								message.message.setVisible(true);
+							}
 							for (int i = 0; i < building.size(); i++) {
 								if (breader.region.equals(building.get(i).region)
 										&& breader.village.equals(building.get(i).village)
@@ -223,9 +258,11 @@ public class Mwiportal {
 							build.land.setText("required");
 							build.tank.setText("required");
 						} else {
-							ownerpage.owner.setBounds(build.buildportal.getBounds());
-							ownerpage.owner.setVisible(true);
-							build.buildportal.setVisible(false);
+							Success_page message = new Success_page();
+							message.message.setVisible(true);
+							if (building.size() == 0) {
+								message.success.setText("Building isn't exist");
+							}
 							for (int i = 0; i < building.size(); i++) {
 								if (breader.region.equals(building.get(i).region)
 										&& breader.village.equals(building.get(i).village)
@@ -236,6 +273,10 @@ public class Mwiportal {
 									i = building.size();
 									for (int j = 0; j < owner.size(); j++) {
 										if (building.get(c).readID().equals(owner.get(j).readID())) {
+											message.message.setVisible(false);
+											ownerpage.owner.setBounds(build.buildportal.getBounds());
+											ownerpage.owner.setVisible(true);
+											build.buildportal.setVisible(false);
 											ownerpage.fname.setText(owner.get(j).fname);
 											ownerpage.sname.setText(owner.get(j).sname);
 											ownerpage.tname.setText(owner.get(j).tname);
@@ -245,13 +286,12 @@ public class Mwiportal {
 											ownerpage.ID.setText(owner.get(j).readID());
 											j = owner.size();
 										} else {
-											Success_page message = new Success_page();
 											message.success.setText("error finding owner");
 										}
 									}
 								} else {
-									Success_page message = new Success_page();
 									message.success.setText("Building isn't exist");
+									message.message.setVisible(true);
 								}
 							}
 						}
@@ -280,6 +320,10 @@ public class Mwiportal {
 								message.message.setVisible(true);
 							} else {
 								int s = 0;
+								if (bill.size() == 0) {
+									message.success.setText("can't find bill");
+									message.message.setVisible(true);
+								}
 								for (int i = 0; i < bill.size(); i++) {
 									if (bireader.readref().equals(bill.get(i).readref())) {
 										bireader.enteramount(bireader.readamount() + bill.get(i).readamount());
@@ -413,6 +457,12 @@ public class Mwiportal {
 								emp.tname.setText("number!!");
 								emp.lname.setText("");
 							} else {
+								if (employee.size() == 0) {
+									emp.fname.setText("employee's");
+									emp.sname.setText("not");
+									emp.tname.setText("exist!!");
+									emp.lname.setText("");
+								}
 								for (int i = 0; i < employee.size(); i++) {
 									if (ereader.readID().equals(employee.get(i).readID())) {
 										emp.fname.setText(employee.get(i).fname);
@@ -427,50 +477,56 @@ public class Mwiportal {
 										i = employee.size();
 										emp.edit.addActionListener(new ActionListener() {
 											public void actionPerformed(ActionEvent e) {
-												Editemp_page editemp = new Editemp_page();
-												ereader.fname = employee.get(c).fname;
-												ereader.sname = employee.get(c).sname;
-												ereader.tname = employee.get(c).tname;
-												ereader.lname = employee.get(c).lname;
-												ereader.date = employee.get(c).date;
-												editemp.editemp.setBounds(emp.Empportal.getBounds());
-												editemp.editemp.setVisible(true);
-												emp.Empportal.setVisible(false);
-												editemp.edit.addActionListener(new ActionListener() {
-													public void actionPerformed(ActionEvent e) {
-														String success;
-														Success_page message = new Success_page();
-														message.message.setVisible(true);
-														if (editemp.position.getText().isEmpty()
-																&& editemp.salary.getText().isEmpty()
-																&& editemp.yinc.getText().isEmpty()) {
-															success = "required field";
-														} else {
-															ereader.position = editemp.position.getText();
-															ereader.entersalary(
-																	Integer.parseInt(editemp.salary.getText()));
-															ereader.enteryinc(Integer.parseInt(editemp.yinc.getText()));
-															if (ereader.readsalary() == 0 || ereader.readyinc() == 0) {
-																success = "wrong entry!!";
+												if (emp.ID.getText().equals(employee.get(c).readID())) {
+													Editemp_page editemp = new Editemp_page();
+													ereader.enterID(employee.get(c).readID());
+													ereader.fname = employee.get(c).fname;
+													ereader.sname = employee.get(c).sname;
+													ereader.tname = employee.get(c).tname;
+													ereader.lname = employee.get(c).lname;
+													ereader.date = employee.get(c).date;
+													editemp.editemp.setBounds(emp.Empportal.getBounds());
+													editemp.editemp.setVisible(true);
+													emp.Empportal.setVisible(false);
+													editemp.edit.addActionListener(new ActionListener() {
+														public void actionPerformed(ActionEvent e) {
+															String success;
+															Success_page message = new Success_page();
+															message.message.setVisible(true);
+															if (editemp.position.getText().isEmpty()
+																	&& editemp.salary.getText().isEmpty()
+																	&& editemp.yinc.getText().isEmpty()) {
+																success = "required field";
 															} else {
-																employee.set(c, ereader);
-																success = Editemp(employee);
-																emp.Empportal.setBounds(editemp.editemp.getBounds());
-																emp.Empportal.setVisible(true);
-																message.message.setVisible(true);
-																editemp.editemp.setVisible(false);
+																ereader.position = editemp.position.getText();
+																ereader.entersalary(
+																		Integer.parseInt(editemp.salary.getText()));
+																ereader.enteryinc(
+																		Integer.parseInt(editemp.yinc.getText()));
+																if (ereader.readsalary() == 0
+																		|| ereader.readyinc() == 0) {
+																	success = "wrong entry!!";
+																} else {
+																	employee.set(c, ereader);
+																	success = Editemp(employee);
+																	emp.Empportal
+																			.setBounds(editemp.editemp.getBounds());
+																	emp.Empportal.setVisible(true);
+																	message.message.setVisible(true);
+																	editemp.editemp.setVisible(false);
+																}
 															}
+															message.success.setText(success);
 														}
-														editemp.back.addActionListener(new ActionListener() {
-															public void actionPerformed(ActionEvent e) {
-																emp.Empportal.setBounds(editemp.editemp.getBounds());
-																emp.Empportal.setVisible(true);
-																editemp.editemp.setVisible(false);
-															}
-														});
-														message.success.setText(success);
-													}
-												});
+													});
+													editemp.back.addActionListener(new ActionListener() {
+														public void actionPerformed(ActionEvent e) {
+															emp.Empportal.setBounds(editemp.editemp.getBounds());
+															emp.Empportal.setVisible(true);
+															editemp.editemp.setVisible(false);
+														}
+													});
+												}
 											}
 										});
 									} else {
@@ -480,9 +536,9 @@ public class Mwiportal {
 										emp.lname.setText("");
 									}
 								}
-								if (emp.tname.getText().equals("exist!!")) {
-									emp.add.addActionListener(new ActionListener() {
-										public void actionPerformed(ActionEvent e) {
+								emp.add.addActionListener(new ActionListener() {
+									public void actionPerformed(ActionEvent e) {
+										if (emp.tname.getText().equals("exist!!")) {
 											Addemp_page addemp = new Addemp_page();
 											addemp.addemp.setBounds(emp.Empportal.getBounds());
 											addemp.addemp.setVisible(true);
@@ -502,6 +558,7 @@ public class Mwiportal {
 															|| addemp.yinc.getText().isEmpty()) {
 														success = "Required fields!!";
 													} else {
+														ereader.enterID(emp.ID.getText());
 														ereader.fname = addemp.fname.getText();
 														ereader.sname = addemp.sname.getText();
 														ereader.tname = addemp.tname.getText();
@@ -509,8 +566,9 @@ public class Mwiportal {
 														ereader.date = addemp.date.getText();
 														ereader.position = addemp.position.getText();
 														try {
-														ereader.entersalary(Integer.parseInt(addemp.salary.getText()));
-														ereader.enteryinc(Integer.parseInt(addemp.yinc.getText()));
+															ereader.entersalary(
+																	Integer.parseInt(addemp.salary.getText()));
+															ereader.enteryinc(Integer.parseInt(addemp.yinc.getText()));
 														} catch (Exception e2) {
 															// TODO: handle exception
 															ereader.entersalary(0);
@@ -527,23 +585,31 @@ public class Mwiportal {
 															message.message.setVisible(true);
 															addemp.addemp.setVisible(false);
 														}
-														if (success.equals("Employee has been added successfuly")) {
+														if (success.equals("employee has been added successfuly")) {
 															employee.add(ereader);
+															emp.fname.setText(employee.get(employee.size() - 1).fname);
+															emp.sname.setText(employee.get(employee.size() - 1).sname);
+															emp.tname.setText(employee.get(employee.size() - 1).tname);
+															emp.lname.setText(employee.get(employee.size() - 1).lname);
+															emp.date.setText(employee.get(employee.size() - 1).date);
+															emp.pos.setText(employee.get(employee.size() - 1).position);
+															emp.salary.setText(String.valueOf(employee.get(employee.size() - 1).readsalary()));
+															emp.yinc.setText(String.valueOf(employee.get(employee.size() - 1).readyinc()));
 														}
 													}
-													addemp.back.addActionListener(new ActionListener() {
-														public void actionPerformed(ActionEvent e) {
-															emp.Empportal.setBounds(addemp.addemp.getBounds());
-															emp.Empportal.setVisible(true);
-															addemp.addemp.setVisible(false);
-														}
-													});
 													message.success.setText(success);
 												}
 											});
+											addemp.back.addActionListener(new ActionListener() {
+												public void actionPerformed(ActionEvent e) {
+													emp.Empportal.setBounds(addemp.addemp.getBounds());
+													addemp.addemp.setVisible(false);
+													emp.Empportal.setVisible(true);
+												}
+											});
 										}
-									});
-								}
+									}
+								});
 							}
 						}
 					}
@@ -801,7 +867,7 @@ public class Mwiportal {
 					+ build.land + ";" + build.tank);
 			pw.flush();
 			pw.close();
-			success = "Building has been added succesfuly";
+			success = "Building has been added successfuly";
 
 		} catch (Exception e) {
 			// TODO: handle exception
